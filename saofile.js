@@ -62,12 +62,12 @@ module.exports = {
       {
         name: 'selector',
         message: 'What is the name of the new component?',
-        default: 'ad-home'
+        default: 'ad-' + this.outFolder.toLowerCase()
       },
       {
         name: 'fileName',
         message: 'What is the name of the new component?',
-        default: 'home'
+        default: this.outFolder.toLowerCase()
       }
     ]
   },
@@ -111,6 +111,12 @@ module.exports = {
         type: 'move',
         patterns: {
           'home.state.ts': `${this.answers.name.toLowerCase()}.state.ts`
+        }
+      },
+      {
+        type: 'move',
+        patterns: {
+          'home.service.ts': `${this.answers.name.toLowerCase()}.service.ts`
         }
       }
     ]
