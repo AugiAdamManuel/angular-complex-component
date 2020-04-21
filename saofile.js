@@ -119,12 +119,20 @@ module.exports = {
         patterns: {
           'tmp.service.ts': `${this.answers.name.toLowerCase()}.service.ts`
         }
+      },
+      {
+        type: 'remove',
+        files: 'yarn.lock'
+      },
+      {
+        type: 'remove',
+        files: 'node_modules'
       }
     ]
   },
   async completed () {
-    this.gitInit()
-    await this.npmInstall()
-    this.showProjectTips()
+    // this.gitInit()
+    // await this.npmInstall()
+    // this.showProjectTips()
   }
 }
