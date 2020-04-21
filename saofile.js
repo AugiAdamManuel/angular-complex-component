@@ -33,10 +33,10 @@ module.exports = {
     return [
       {
         name: 'name',
-        message: 'What is the name of the new component?',
+        message: "What is the component's name?",
         default:
           this.outFolder.toUpperCase().slice(0, 1) +
-            this.outFolder.toLowerCase().slice(1, this.outFolder.length - 1) ||
+            this.outFolder.toLowerCase().slice(1, this.outFolder.length) ||
           'Home',
         filter: value => {
           if ((value + '').includes(' ')) {
@@ -45,7 +45,7 @@ module.exports = {
               return (
                 prev +
                 cur.toUpperCase().slice(0, 1) +
-                cur.toLowerCase().slice(1, cur.length - 1)
+                cur.toLowerCase().slice(1, cur.length)
               )
             }, '')
             // this.context.storage.saveName(toReturn)
@@ -53,7 +53,7 @@ module.exports = {
           } else {
             const toReturn =
               value.toUpperCase().slice(0, 1) +
-              value.toLowerCase().slice(1, value.length - 1)
+              value.toLowerCase().slice(1, value.length)
             // this.context.storage.saveName(toReturn)
             return toReturn
           }
@@ -61,12 +61,13 @@ module.exports = {
       },
       {
         name: 'selector',
-        message: 'What is the name of the new component?',
+        message: "What is the name of the component's selector?",
         default: 'ad-' + this.outFolder.toLowerCase()
       },
       {
         name: 'fileName',
-        message: 'What is the name of the new component?',
+        message:
+          "What is the name of the new component's file prefix (e.g. [home].component.ts)?",
         default: this.outFolder.toLowerCase()
       }
     ]
@@ -80,43 +81,43 @@ module.exports = {
       {
         type: 'move',
         patterns: {
-          'home.component.ts': `${this.answers.name.toLowerCase()}.component.ts`
+          'tmp.component.ts': `${this.answers.name.toLowerCase()}.component.ts`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.component.html': `${this.answers.name.toLowerCase()}.component.html`
+          'tmp.component.html': `${this.answers.name.toLowerCase()}.component.html`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.component.scss': `${this.answers.name.toLowerCase()}.component.scss`
+          'tmp.component.scss': `${this.answers.name.toLowerCase()}.component.scss`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.module.ts': `${this.answers.name.toLowerCase()}.module.ts`
+          'tmp.module.ts': `${this.answers.name.toLowerCase()}.module.ts`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.routes.ts': `${this.answers.name.toLowerCase()}.routes.ts`
+          'tmp.routes.ts': `${this.answers.name.toLowerCase()}.routes.ts`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.state.ts': `${this.answers.name.toLowerCase()}.state.ts`
+          'tmp.state.ts': `${this.answers.name.toLowerCase()}.state.ts`
         }
       },
       {
         type: 'move',
         patterns: {
-          'home.service.ts': `${this.answers.name.toLowerCase()}.service.ts`
+          'tmp.service.ts': `${this.answers.name.toLowerCase()}.service.ts`
         }
       }
     ]
