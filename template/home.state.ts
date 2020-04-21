@@ -4,35 +4,35 @@ import { produce, Draft } from "immer";
 import { Injectable } from "@angular/core";
 
 /**
- * Home state model
+ * <%= name %> state model
  */
-export interface HomeStateModel {
+export interface <%= name %>StateModel {
   value: number;
 }
 
 /**
- * HomeStateModel State
+ * <%= name %>StateModel State
  */
-@State<HomeStateModel>({
-  name: "Home",
+@State<<%= name %>StateModel>({
+  name: "<%= name %>",
   defaults: { value: 0 },
 })
 @Injectable({
   providedIn: "root",
 })
-export class HomeState {
+export class <%= name %>State {
   /**
-   * Receivers Home state
+   * Receivers <%= name %> state
    * @param ctx State context provided to the actions in the state.
    * @param action This class is used as a default action when the user doesn't pass any custom action as an argument
    */
-  @Receiver({ type: "[Home] Set New Value" })
+  @Receiver({ type: "[<%= name %>] Set New Value" })
   public static setValue(
-    ctx: StateContext<HomeStateModel>,
+    ctx: StateContext<<%= name %>StateModel>,
     action: EmitterAction<number>
   ) {
     ctx.setState(
-      produce((draft: Draft<HomeStateModel>) => {
+      produce((draft: Draft<<%= name %>StateModel>) => {
         console.log(action.type);
         draft.value = action.payload;
       })

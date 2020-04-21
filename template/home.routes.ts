@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router'
-import { HomeComponent } from './home.component'
+import { <%= name %>Component } from './<%= fileName %>.component'
 
-export const HomeRoutes: Routes = [
+export const <%= name %>Routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: <%= name %>Component
   }
 ]

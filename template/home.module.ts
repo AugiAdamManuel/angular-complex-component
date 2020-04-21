@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core'
 
-import { HomeComponent } from './home.component'
-import { HomeState } from './home.state'
+import { <%= name %>Component } from './<%= fileName %>.component'
+import { <%= name %>State } from './<%= fileName %>.state'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { HomeRoutes } from './home.routes'
-import { HomeService } from './home.service'
+import { <%= name %>Routes } from './<%= fileName %>.routes'
+import { <%= name %>Service } from './<%= fileName %>.service'
 import { NgxsModule } from '@ngxs/store'
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(HomeRoutes),
-    NgxsModule.forFeature([HomeState])
+    RouterModule.forChild(<%= name %>Routes),
+    NgxsModule.forFeature([<%= name %>State])
   ],
-  exports: [HomeComponent],
-  declarations: [HomeComponent],
-  providers: [HomeState, HomeService]
+  exports: [<%= name %>Component],
+  declarations: [<%= name %>Component],
+  providers: [<%= name %>State, <%= name %>Service]
 })
-export class HomeModule {}
+export class <%= name %>Module {}

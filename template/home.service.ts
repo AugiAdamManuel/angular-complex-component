@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
-export class HomeService {
+export class <%= name %>Service {
   constructor (private httpClient: HttpClient) {}
 
   public getNotes (): Observable<any[]> {
